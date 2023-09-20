@@ -1,4 +1,4 @@
-public abstract class ContaBancaria {
+public abstract class ContaBancaria implements IImprimivel {
     private int numero;
     private double saldo;
     public ContaBancaria(int numero, double saldo){

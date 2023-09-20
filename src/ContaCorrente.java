@@ -1,4 +1,4 @@
-public class ContaCorrente extends  ContaBancaria implements IImprimivel{
+public class ContaCorrente extends  ContaBancaria {
     private double taxaDeOperação=3;
     public ContaCorrente(int numero, double saldo) {
         super(numero, saldo);
@@ -7,7 +7,8 @@ public class ContaCorrente extends  ContaBancaria implements IImprimivel{
 
     @Override
     public boolean sacar(double valor) {
-        if(valor+taxaDeOperação>=this.getSaldo()){
+        taxaDeOperação=valor/100*taxaDeOperação;
+        if(valor<this.getSaldo()-taxaDeOperação){
             setSaldo(getSaldo()-(valor+taxaDeOperação));
             return true;
         }else{
@@ -17,6 +18,7 @@ public class ContaCorrente extends  ContaBancaria implements IImprimivel{
 
     @Override
     public boolean depositar(double valor) {
+        taxaDeOperação=valor/100*taxaDeOperação;
             setSaldo((getSaldo()-taxaDeOperação)+valor);
             return true;
 

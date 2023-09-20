@@ -1,4 +1,4 @@
-public class ContaPoupanca extends ContaBancaria implements IImprimivel{
+public class ContaPoupanca extends ContaBancaria {
     private double limite;
     public ContaPoupanca(int numero, double saldo, double limite) {
         super(numero, saldo);
